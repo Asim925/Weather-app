@@ -8,42 +8,55 @@ interface Props {
 
 const CurrentCondition = ({ current }: Props) => {
   return (
-    <div className="xl:mx-30 lg:mx-10 border-2 border-gray-700 bg-gray-950 rounded-xl p-6 ">
-      <h2 className="text-4xl font-bold mb-4">Current Conditions</h2>
+    <div className="col-span-2 h-70 overflow-auto border-2 backdrop-blur-md bg-white/5  border-white/10 rounded-xl px-6 pt-6 ">
       {/* details */}
-      <div className="px-4 py-2">
-        <div className="mb-2 flex gap-2">
-          <p>🌡️ Current Temperature (ºC): {current.temp_C}ºC</p>
-          <p>, Feels like (ºC): {current.FeelsLikeC}ºC</p>
+      <div className="flex md:flex-row flex-col lg:justify-between">
+        <div>
+          <h2 className="text-4xl font-bold mb-4">Current Conditions</h2>
+          <div className="lg:pl-4 leading-7 xl:leading-8">
+            <p>
+              🌡️ Current Temperature (ºC): <strong>{current.temp_C}ºC</strong>
+            </p>
+            <p>
+              🌡️ Current Temperature (ºF): <strong>{current.temp_F}ºF</strong>
+            </p>
+            <p>
+              {current.weatherDesc[0].value === "Smoke" ||
+              current.weatherDesc[0].value === "Haze" ? (
+                <span>☁️</span>
+              ) : current.weatherDesc[0].value === "Sunny" ? (
+                <span>☀️</span>
+              ) : (
+                <span>🌧️</span>
+              )}{" "}
+              Condition: <strong>{current.weatherDesc[0].value}</strong>
+            </p>
+            <ShowMoreDetails current={current} />
+          </div>
         </div>
-        <div className="mb-2 flex gap-2">
-          <p>🌡️ Current Temperature (ºF): {current.temp_F}ºF</p>
-          <p>, Feels like (ºC): {current.FeelsLikeF}ºF</p>
-        </div>
-        <p>
-          {current.weatherDesc[0].value === "Smoke" ? (
-            <span>☁️</span>
+        <div className="hover:scale-107 transition xl:w-75 h-fit lg:w-60 min-w-40 max-lg:mt-5">
+          {current.weatherDesc[0].value === "Smoke" ||
+          current.weatherDesc[0].value === "Haze" ? (
+            <img
+              className="-mt-10 w-full h-full"
+              src="smoke.png"
+              alt="storm image"
+            />
           ) : current.weatherDesc[0].value === "Sunny" ? (
-            <span>☀️</span>
+            <img
+              className="-mt-10 w-full h-full"
+              src="sun.png"
+              alt="storm image"
+            />
           ) : (
-            <span>🌧️</span>
+            <img
+              className="-mt-10 w-full h-full"
+              src="storm.png"
+              alt="storm image"
+            />
           )}{" "}
-          condition: {current.weatherDesc[0].value}
-        </p>
-        <div className="mb-2 flex gap-2">
-          <p>☁️ Cloud Cover: {current.cloudcover}% ,</p>
-          <p>👁️ Visibility: {current.visibility}Km</p>
-        </div>
-        <div className="mb-2 flex gap-2">
-          <p>💧 Humidity: {current.humidity}% ,</p>
-          <p>
-            💨 Wind: {current.windspeedKmph}-Km/h <strong>OR</strong>{" "}
-            {current.windspeedMiles}
-            -miles/h
-          </p>
         </div>
       </div>
-      <ShowMoreDetails />
       {/* details end */}
     </div>
   );

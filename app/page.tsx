@@ -1,13 +1,13 @@
 "use client";
 
 import Hero from "./components/Hero";
-import Particles from "./components/Particles";
 import CurrentConditions from "./components/CurrentCondition";
 import React, { useEffect, useState } from "react";
-import Loading from "./components/Loading";
+import Location from "./components/Location";
 
 interface Data {
   current_condition: CurrentCondition[];
+  nearest_area: NearestArea[];
 }
 
 export interface CurrentCondition {
@@ -39,6 +39,16 @@ export interface CurrentCondition {
   windspeedMiles: string;
 }
 
+export interface NearestArea {
+  areaName: { value: string }[];
+  country: { value: string }[];
+  latitude: string;
+  longitude: string;
+  population: string;
+  region: { value: string }[];
+  weatherUrl: { value: string }[];
+}
+
 const page = () => {
   let [data, setData] = useState<Data | null>(null);
   let [isLoading, setIsLoading] = useState(true);
@@ -60,29 +70,15 @@ const page = () => {
 
   return (
     <>
-      {/* background */}
-      <div className="absolute top-0 left-0 -z-[99999] h-full w-screen">
-        <Particles
-          particleColors={["#ffffff", "#ffffff"]}
-          particleCount={400}
-          particleSpread={12}
-          speed={0.1}
-          particleBaseSize={100}
-          moveParticlesOnHover={false}
-          alphaParticles={true}
-          disableRotation={true}
-        />
-      </div>
-      {/* background end*/}
-
       {/* main */}
       <Hero isLoading={isLoading} />
 
       {/* details */}
       {data && (
-        <>
+        <div className="grid grid-cols-3 xl:mx-30 md:mx-10 gap-5 mb-10">
           <CurrentConditions current={data.current_condition[0]} />
-        </>
+          <Location area={data.nearest_area[0]} />
+        </div>
       )}
     </>
   );
