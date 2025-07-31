@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import Particles from "./components/Particles";
 import CurrentConditions from "./components/CurrentCondition";
 import React, { useEffect, useState } from "react";
+import Loading from "./components/Loading";
 
 interface Data {
   current_condition: CurrentCondition[];
@@ -40,11 +41,14 @@ export interface CurrentCondition {
 
 const page = () => {
   let [data, setData] = useState<Data | null>(null);
+  let [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchData = async () => {
       let res = await fetch("https://wttr.in/Karachi?format=j1");
       setData(await res.json());
+      setIsLoading(false);
     };
 
     fetchData();
@@ -70,8 +74,16 @@ const page = () => {
         />
       </div>
       {/* background end*/}
-      <Hero />
-      {data && <CurrentConditions current={data.current_condition[0]} />}
+
+      {/* main */}
+      <Hero isLoading={isLoading} />
+
+      {/* details */}
+      {data && (
+        <>
+          <CurrentConditions current={data.current_condition[0]} />
+        </>
+      )}
     </>
   );
 };

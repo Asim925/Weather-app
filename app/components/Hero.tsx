@@ -1,6 +1,11 @@
 import React from "react";
+import Loading from "./Loading";
 
-const Hero = () => {
+interface Props {
+  isLoading: boolean;
+}
+
+const Hero = ({ isLoading }: Props) => {
   return (
     <>
       <div className="md:flex gap-5 min-h-screen w-vw items-center max-md:text-center">
@@ -17,6 +22,7 @@ const Hero = () => {
             away. With a clean UI 🎨 and the reliability of wttr.in, you can
             plan your day smarter 🧠 and stay one step ahead of the weather ⛅.
           </p>
+          {isLoading && <Loading />}
         </div>
 
         <div className="md:w-[50%] xl:pr-30 max-md:px-30 max-sm:px-10">
