@@ -8,12 +8,14 @@ interface Props {
 
 const CurrentCondition = ({ current }: Props) => {
   return (
-    <div className="col-span-2 h-70 overflow-auto border-2 backdrop-blur-md bg-white/5  border-white/10 rounded-xl px-6 pt-6 ">
+    <div className="col-span-3 sm:col-span-2 h-fit overflow-auto border-2 backdrop-blur-sm bg-black/20 border-white/50 shadow-xl/30 rounded-xl px-6 py-6">
       {/* details */}
-      <div className="flex md:flex-row flex-col lg:justify-between">
-        <div>
-          <h2 className="text-4xl font-bold mb-4">Current Conditions</h2>
-          <div className="lg:pl-4 leading-7 xl:leading-8">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="w-full md:w-2/3">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center md:text-left">
+            Current Conditions
+          </h2>
+          <div className="leading-7 xl:leading-8 space-y-2 text-sm sm:text-base">
             <p>
               🌡️ Current Temperature (ºC): <strong>{current.temp_C}ºC</strong>
             </p>
@@ -34,30 +36,30 @@ const CurrentCondition = ({ current }: Props) => {
             <ShowMoreDetails current={current} />
           </div>
         </div>
-        <div className="hover:scale-107 transition xl:w-75 h-fit lg:w-60 min-w-40 max-lg:mt-5">
+
+        <div className="w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64 flex-shrink-0 transition-transform hover:scale-105">
           {current.weatherDesc[0].value === "Smoke" ||
           current.weatherDesc[0].value === "Haze" ? (
             <img
-              className="-mt-10 w-full h-full"
+              className="w-full h-auto object-contain"
               src="smoke.png"
-              alt="storm image"
+              alt="Smoke"
             />
           ) : current.weatherDesc[0].value === "Sunny" ? (
             <img
-              className="-mt-10 w-full h-full"
+              className="w-full h-auto object-contain"
               src="sun.png"
-              alt="storm image"
+              alt="Sun"
             />
           ) : (
             <img
-              className="-mt-10 w-full h-full"
+              className="w-full h-auto object-contain"
               src="storm.png"
-              alt="storm image"
+              alt="Storm"
             />
-          )}{" "}
+          )}
         </div>
       </div>
-      {/* details end */}
     </div>
   );
 };

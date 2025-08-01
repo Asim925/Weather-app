@@ -13,7 +13,7 @@ const Hero = ({ isLoading }: Props) => {
           <h1 className="text-6xl xl:text-8xl font-extrabold mb-8">
             Weather <br /> App
           </h1>
-          <p className="tracking-wide lg:leading-8 xl:text-xl lg:text-lg text-md">
+          <p className="max-sm:text-left tracking-wide lg:leading-8 xl:text-xl lg:text-lg text-md">
             ☀️ Welcome to my Weather App — a fast ⚡, minimal 🧊, and powerful
             🌪️ tool for checking real-time weather conditions. Built using the
             wttr.in API 🛰️, this app lets you fetch up-to-date weather data 🌍

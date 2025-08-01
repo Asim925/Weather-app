@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className="bg-gradient-to-b from-black to-gray-800 bg-fixed text-white"
+      className="bg-gradient-to-b from-blue-950 to-blue-200 bg-fixed text-white"
       lang="en"
     >
       <body className={`${poppins.variable} font-sans antialiased `}>

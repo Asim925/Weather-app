@@ -4,6 +4,8 @@ import Hero from "./components/Hero";
 import CurrentConditions from "./components/CurrentCondition";
 import React, { useEffect, useState } from "react";
 import Location from "./components/Location";
+import Particles from "react-tsparticles";
+import DayWeather from "./components/DayWeather";
 
 interface Data {
   current_condition: CurrentCondition[];
@@ -72,12 +74,12 @@ const page = () => {
     <>
       {/* main */}
       <Hero isLoading={isLoading} />
-
       {/* details */}
       {data && (
-        <div className="grid grid-cols-3 xl:mx-30 md:mx-10 gap-5 mb-10">
+        <div className="grid grid-cols-3 xl:mx-30 md:mx-10 mx-8 gap-5 mb-10">
           <CurrentConditions current={data.current_condition[0]} />
           <Location area={data.nearest_area[0]} />
+          <DayWeather />
         </div>
       )}
     </>
