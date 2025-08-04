@@ -1,5 +1,5 @@
 import React from "react";
-import { NearestArea as IArea } from "../page";
+import { NearestArea as IArea } from "../types";
 
 interface Props {
   area: IArea;

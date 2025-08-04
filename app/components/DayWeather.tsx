@@ -1,39 +1,27 @@
 "use client";
 import React, { useState } from "react";
-import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
+import { IoTimeOutline } from "react-icons/io5";
+import { Weather as WeatherData } from "../types";
 
-const DayWeather = () => {
+interface Props {
+  weather: WeatherData[];
+}
+
+const DayWeather = ({ weather }: Props) => {
   let [selectedTab, setSelectedTab] = useState(0);
-  let tabs = ["Today", "Tomorrow", "Day after Tomorrow"];
 
+  console.log(weather);
   return (
     <div className="col-span-3 h-fit overflow-auto border-2 backdrop-blur-sm bg-black/20 border-white/50 shadow-xl/30 rounded-xl px-6 py-6">
-      <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center sm:text-left">
-        Select Day
+      <h2 className="flex gap-2 items-center text-3xl sm:text-4xl font-bold mb-4 text-center sm:text-left">
+        <IoTimeOutline /> Next 72 Hours
       </h2>
-      <TabGroup className={"flex flex-col items-center "}>
-        <TabList
-          className={"flex grow w-full md:w-[60%] py-1 rounded-4xl bg-gray-500"}
-        >
-          {tabs.map((tab, index) => (
-            <Tab
-              onClick={() => setSelectedTab(index)}
-              className={`grow focus:border-0 ${
-                selectedTab === index
-                  ? "bg-white text-black rounded-4xl mx-1 py-3"
-                  : ""
-              }`}
-            >
-              {tab}
-            </Tab>
-          ))}
-        </TabList>
-        <TabPanels>
-          <TabPanel>Content 1</TabPanel>
-          <TabPanel>Content 2</TabPanel>
-          <TabPanel>Content 3</TabPanel>
-        </TabPanels>
-      </TabGroup>
+      <div
+        onClick={() => setSelectedTab(1)}
+        className="w-40 h-25 border-2 backdrop-blur-sm bg-black/20 border-white/50 shadow-xl/30 rounded-xl p-2"
+      >
+        Today
+      </div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { CurrentCondition as IConditions } from "../page";
+import { CurrentCondition as IConditions } from "../types";
 import ShowMoreDetails from "./ShowMoreDetails";
 
 interface Props {
@@ -16,6 +16,9 @@ const CurrentCondition = ({ current }: Props) => {
             Current Conditions
           </h2>
           <div className="leading-7 xl:leading-8 space-y-2 text-sm sm:text-base">
+            <p>
+              Date & Time: <strong>{new Date().toLocaleString()}</strong>
+            </p>
             <p>
               🌡️ Current Temperature (ºC): <strong>{current.temp_C}ºC</strong>
             </p>

@@ -22,11 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      className="bg-gradient-to-b from-blue-950 to-blue-200 bg-fixed text-white"
-      lang="en"
-    >
-      <body className={`${poppins.variable} font-sans antialiased `}>
+    <html lang="en" className="h-full">
+      <body
+        className={`${poppins.variable} font-sans antialiased relative min-h-screen`}
+      >
+        {/* Background layer */}
+        <div className="fixed inset-0 -z-10 bg-[url('/bg.png')]  bg-cover bg-center brightness-50 " />
+        {/* Page content */}
         {children}
       </body>
     </html>
