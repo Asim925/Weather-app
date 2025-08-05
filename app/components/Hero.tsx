@@ -8,7 +8,7 @@ interface Props {
 const Hero = ({ isLoading }: Props) => {
   return (
     <>
-      <div className="md:flex gap-5 min-h-screen w-vw items-center max-md:text-center">
+      <div className="md:flex gap-5 min-h-screen w-vw items-center max-md:text-center z-999">
         <div className="md:w-[50%] xl:pl-30 lg:pl-25 md:pl-20 max-md:px-10 mt-10">
           <h1 className="text-6xl xl:text-8xl font-extrabold mb-8">
             Weather <br /> App

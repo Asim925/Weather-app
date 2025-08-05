@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { CurrentCondition as IConditions } from "../page";
+import { CurrentCondition as IConditions } from "../types";
 interface Props {
   current: IConditions;
 }
@@ -12,9 +12,9 @@ const ShowMoreDetails = ({ current }: Props) => {
     <>
       <button
         onClick={() => setShow(!show)}
-        className="mt-5 relative inline-flex items-center justify-center p-0.5 me-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-cyan-500 to-cyan-950 group-hover:from-cyan-600 group-hover:to-cyan-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-400"
+        className="mt-5 relative inline-flex items-center justify-center p-0.5 me-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-red-600 to-red-950 group-hover:from-red-600 group-hover:to-red-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-red-400"
       >
-        <span className="relative px-5 py-2.5 transition-all ease-in duration-180 bg-cyan-800 rounded-md group-hover:bg-transparent">
+        <span className="relative px-5 py-2.5 transition-all ease-in duration-180 bg-red-900 rounded-md group-hover:bg-transparent">
           {show ? "Hide Details" : "Show More Details"}
         </span>
       </button>

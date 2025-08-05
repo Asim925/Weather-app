@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from "next/font/google";
+import VantaClouds from "./components/VantaClouds"; // adjust path if needed
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -27,7 +28,7 @@ export default function RootLayout({
         className={`${poppins.variable} font-sans antialiased relative min-h-screen`}
       >
         {/* Background layer */}
-        <div className="fixed inset-0 -z-10 bg-[url('/bg.png')]  bg-cover bg-center brightness-50 " />
+        <VantaClouds />
         {/* Page content */}
         {children}
       </body>
