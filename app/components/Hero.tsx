@@ -26,7 +26,11 @@ const Hero = ({ isLoading }: Props) => {
         </div>
 
         <div className="md:w-[50%] xl:pr-30 max-md:px-30 max-sm:px-10">
-          <img className="w-full" src="hero-image.png" alt="yele" />
+          <img
+            className="w-full grayscale-25 filter brightness-85"
+            src="mobile.png"
+            alt="yele"
+          />
         </div>
       </div>
     </>

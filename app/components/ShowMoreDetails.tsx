@@ -12,9 +12,9 @@ const ShowMoreDetails = ({ current }: Props) => {
     <>
       <button
         onClick={() => setShow(!show)}
-        className="mt-5 relative inline-flex items-center justify-center cursor-pointer p-0.5 me-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-red-600 to-red-950 group-hover:from-red-600 group-hover:to-red-800 hover:text-white focus:outline-none "
+        className="mt-5 relative inline-flex items-center justify-center cursor-pointer p-0.5 me-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-gray-500 to-gray-800 group-hover:from-gray-900 group-hover:to-gray-950 hover:text-white focus:outline-none "
       >
-        <span className="relative px-5 py-2.5 transition-all ease-in duration-180 bg-red-900 rounded-md group-hover:bg-transparent">
+        <span className="relative px-5 py-2.5 transition-all ease-in duration-180 bg-gray-900 rounded-md group-hover:bg-transparent">
           {show ? "Hide Details" : "Show More Details"}
         </span>
       </button>
