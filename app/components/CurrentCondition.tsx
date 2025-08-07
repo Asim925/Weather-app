@@ -1,10 +1,23 @@
 import React from "react";
 import { CurrentCondition as IConditions } from "../types";
 import ShowMoreDetails from "./ShowMoreDetails";
+import { getWeatherEmoji } from "./next72Hours/components/HourlyForecast";
 
 interface Props {
   current: IConditions;
 }
+
+let foggyWeather = [
+  "Haze",
+  "Smoke",
+  "Fog",
+  "Mist",
+  "Partly cloudy",
+  "Cloudy",
+  "Overcast",
+];
+
+let sunnyWeather = ["Sunny", "Clear"];
 
 const CurrentCondition = ({ current }: Props) => {
   return (
@@ -26,29 +39,21 @@ const CurrentCondition = ({ current }: Props) => {
               🌡️ Current Temperature (ºF): <strong>{current.temp_F}ºF</strong>
             </p>
             <p>
-              {current.weatherDesc[0].value === "Smoke" ||
-              current.weatherDesc[0].value === "Haze" ? (
-                <span>☁️</span>
-              ) : current.weatherDesc[0].value === "Sunny" ? (
-                <span>☀️</span>
-              ) : (
-                <span>🌧️</span>
-              )}{" "}
-              Condition: <strong>{current.weatherDesc[0].value}</strong>
+              {getWeatherEmoji(current.weatherDesc[0].value)} Condition:
+              <strong> {current.weatherDesc[0].value}</strong>
             </p>
             <ShowMoreDetails current={current} />
           </div>
         </div>
 
         <div className="w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64 flex-shrink-0 transition-transform hover:scale-105">
-          {current.weatherDesc[0].value === "Smoke" ||
-          current.weatherDesc[0].value === "Haze" ? (
+          {foggyWeather.includes(current.weatherDesc[0].value) ? (
             <img
               className="w-full h-auto object-contain"
               src="smoke.png"
               alt="Smoke"
             />
-          ) : current.weatherDesc[0].value === "Sunny" ? (
+          ) : sunnyWeather.includes(current.weatherDesc[0].value) ? (
             <img
               className="w-full h-auto object-contain"
               src="sun.png"

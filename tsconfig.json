@@ -27,7 +27,8 @@
     "vanta.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "app/components/yele.js"
   ],
   "exclude": ["node_modules"]
 }

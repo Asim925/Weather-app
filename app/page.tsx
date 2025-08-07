@@ -4,7 +4,7 @@ import Hero from "./components/Hero";
 import CurrentConditions from "./components/CurrentCondition";
 import React, { useEffect, useState } from "react";
 import Location from "./components/Location";
-import DayWeather from "./components/DayWeather";
+import Next72Hours from "./components/next72Hours/Next72Hours";
 import { Data } from "./types";
 
 const page = () => {
@@ -23,7 +23,7 @@ const page = () => {
   }, []);
 
   return (
-    <>
+    <div className="select-none">
       {/* main */}
       <Hero isLoading={isLoading} />
       {/* details */}
@@ -31,10 +31,10 @@ const page = () => {
         <div className="grid grid-cols-3 xl:mx-30 md:mx-10 mx-8 gap-5 mb-10 pb-10">
           <CurrentConditions current={data.current_condition[0]} />
           <Location area={data.nearest_area[0]} />
-          <DayWeather weather={data.weather} />
+          <Next72Hours weather={data.weather} />
         </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -25,7 +25,7 @@ export default function VantaClouds() {
           sunColor: 0xedb875,
           sunGlareColor: 0xf0eeee, // No visible sun
           sunlightColor: 0x171818, // Disables any warm light
-          speed: 1, // Very slow and heavy
+          speed: 1.5, // Very slow and heavy
           mouseControls: true,
           touchControls: true,
         });
