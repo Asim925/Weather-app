@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body
-        className={`${poppins.variable} font-sans antialiased relative min-h-screen`}
+        className={`${poppins.variable} text-white font-sans antialiased relative min-h-screen`}
       >
         {/* Background layer */}
         <VantaClouds />
