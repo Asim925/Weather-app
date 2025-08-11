@@ -6,7 +6,7 @@ interface Props {
 }
 
 const ShowMoreDetails = ({ current }: Props) => {
-  let [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
   return (
     <>

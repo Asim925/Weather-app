@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Next72Hours = ({ weather }: Props) => {
-  let [selectedTab, setSelectedTab] = useState(0);
+  const [selectedTab, setSelectedTab] = useState(0);
 
   return (
     <div className="col-span-3 h-fit overflow-auto border-2 backdrop-blur-sm bg-black/20 border-white/50 shadow-xl/30 rounded-xl p-6">

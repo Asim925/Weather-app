@@ -7,14 +7,14 @@ import Location from "./components/Location";
 import Next72Hours from "./components/next72Hours/Next72Hours";
 import { Data } from "./types";
 
-const page = () => {
-  let [data, setData] = useState<Data | null>(null);
-  let [isLoading, setIsLoading] = useState(true);
+const Page = () => {
+  const [data, setData] = useState<Data | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
     const fetchData = async () => {
-      let res = await fetch("https://wttr.in/Karachi?format=j1");
+      const res = await fetch("https://wttr.in/Karachi?format=j1");
       setData(await res.json());
       setIsLoading(false);
     };
@@ -38,4 +38,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

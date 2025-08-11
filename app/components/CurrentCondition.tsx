@@ -2,12 +2,13 @@ import React from "react";
 import { CurrentCondition as IConditions } from "../types";
 import ShowMoreDetails from "./ShowMoreDetails";
 import { getWeatherEmoji } from "./next72Hours/components/HourlyForecast";
+import Image from "next/image";
 
 interface Props {
   current: IConditions;
 }
 
-let foggyWeather = [
+const foggyWeather = [
   "Haze",
   "Smoke",
   "Fog",
@@ -17,7 +18,7 @@ let foggyWeather = [
   "Overcast",
 ];
 
-let sunnyWeather = ["Sunny", "Clear"];
+const sunnyWeather = ["Sunny", "Clear"];
 
 const CurrentCondition = ({ current }: Props) => {
   return (
@@ -48,19 +49,19 @@ const CurrentCondition = ({ current }: Props) => {
 
         <div className="w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64 flex-shrink-0 transition-transform hover:scale-105">
           {foggyWeather.includes(current.weatherDesc[0].value) ? (
-            <img
+            <Image
               className="w-full h-auto object-contain"
               src="smoke.png"
               alt="Smoke"
             />
           ) : sunnyWeather.includes(current.weatherDesc[0].value) ? (
-            <img
+            <Image
               className="w-full h-auto object-contain"
               src="sun.png"
               alt="Sun"
             />
           ) : (
-            <img
+            <Image
               className="w-full h-auto object-contain"
               src="storm.png"
               alt="Storm"
